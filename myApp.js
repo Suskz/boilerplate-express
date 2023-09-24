@@ -12,7 +12,7 @@ app.get('/', (req, res) => {
 
 app.use("/public", express.static(__dirname + "/public"));
 
-app.get("/json", (req, res) => {
+/*app.get("/json", (req, res) => {
   if (process.env["MESSAGE_STYLE"] === "uppercase") {
     res.json({
       message: "Hello json".toUpperCase()
@@ -39,6 +39,14 @@ app.get("/:word/echo", (req, res) => {
   const { word } = req.params;
   res.json({
     echo: word
+  });
+});*/
+
+app.get("/name", (req, res) => {
+  var firstName = req.query.first;
+  var lastName = req.query.last;
+  res.json({
+    name: `${firstName} ${lastName}`
   });
 });
 
